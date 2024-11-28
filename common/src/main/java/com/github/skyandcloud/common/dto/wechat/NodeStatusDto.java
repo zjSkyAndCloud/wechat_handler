@@ -15,7 +15,12 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterDto implements Serializable {
+public class NodeStatusDto implements Serializable {
+
+    /**
+     * 节点状态
+     */
+    private String status;
 
     /**
      * 机器人名称
