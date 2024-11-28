@@ -1,10 +1,10 @@
-package com.github.skyandcloud.wechatclient.server.strategic.impl;
+package com.github.skyandcloud.wechatclient.service.strategic.impl;
 
 import com.github.skyandcloud.common.dto.wechat.ClientMessageDto;
 import com.github.skyandcloud.wechatclient.constant.MessageTypeConstant;
 import com.github.skyandcloud.wechatclient.domain.message.WechatMessagePackagingEntity;
-import com.github.skyandcloud.wechatclient.server.strategic.StrategicMessageContentServer;
-import com.github.skyandcloud.wechatclient.server.strategic.StrategicMessageHandlerServer;
+import com.github.skyandcloud.wechatclient.service.strategic.StrategicMessageContentService;
+import com.github.skyandcloud.wechatclient.service.strategic.StrategicMessageHandlerService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 
@@ -14,11 +14,11 @@ import org.apache.commons.lang3.ObjectUtils;
  * @Date 2024/9/8 14:37
  */
 @Slf4j
-public class MessageContentTextHandlerServerImpl implements StrategicMessageHandlerServer {
+public class MessageContentTextHandlerServiceImpl implements StrategicMessageHandlerService {
 
     @Override
     public void register() {
-        StrategicMessageContentServer.registerStrategicMessageHandlerServer(MessageTypeConstant.TEXT, MessageContentTextHandlerServerImpl.class);
+        StrategicMessageContentService.registerStrategicMessageHandlerServer(MessageTypeConstant.TEXT, MessageContentTextHandlerServiceImpl.class);
     }
 
 

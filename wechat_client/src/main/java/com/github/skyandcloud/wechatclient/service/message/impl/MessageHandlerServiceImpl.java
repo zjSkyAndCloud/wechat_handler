@@ -1,7 +1,7 @@
-package com.github.skyandcloud.wechatclient.server.message.impl;
+package com.github.skyandcloud.wechatclient.service.message.impl;
 
 import com.github.skyandcloud.common.vo.MessageVo;
-import com.github.skyandcloud.wechatclient.server.message.MessageHandlerServer;
+import com.github.skyandcloud.wechatclient.service.message.MessageHandlerService;
 import com.github.skyandcloud.wechatclient.task.MessageCustomerTask;
 
 import java.util.concurrent.LinkedBlockingDeque;
@@ -11,7 +11,7 @@ import java.util.concurrent.LinkedBlockingDeque;
  * @Author zheng.jiang
  * @Date 2024/9/23 16:52
  */
-public class MessageHandlerServerImpl implements MessageHandlerServer {
+public class MessageHandlerServiceImpl implements MessageHandlerService {
 
     /**
      * 一个队列 用于按顺序输出信息

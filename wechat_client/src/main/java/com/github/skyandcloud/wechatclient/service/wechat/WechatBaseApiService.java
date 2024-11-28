@@ -1,4 +1,4 @@
-package com.github.skyandcloud.wechatclient.server.wechat;
+package com.github.skyandcloud.wechatclient.service.wechat;
 
 import com.github.skyandcloud.wechatclient.domain.wechatapi.param.*;
 import com.github.skyandcloud.wechatclient.domain.wechatapi.result.*;
@@ -8,7 +8,7 @@ import com.github.skyandcloud.wechatclient.domain.wechatapi.result.*;
  * @Author zheng.jiang
  * @Date 2024/9/12 15:53
  */
-public interface WechatBaseApiServer {
+public interface WechatBaseApiService {
 
     /**
      * 检查微信是否登录

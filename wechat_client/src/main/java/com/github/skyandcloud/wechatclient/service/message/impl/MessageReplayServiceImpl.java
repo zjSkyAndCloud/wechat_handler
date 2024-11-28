@@ -1,12 +1,12 @@
-package com.github.skyandcloud.wechatclient.server.message.impl;
+package com.github.skyandcloud.wechatclient.service.message.impl;
 
 import com.github.skyandcloud.common.enums.MessageHandlerTypeEnums;
 import com.github.skyandcloud.common.utils.SleepUtils;
 import com.github.skyandcloud.common.vo.MessageVo;
 import com.github.skyandcloud.wechatclient.config.ServerGlobalStaticConfig;
-import com.github.skyandcloud.wechatclient.server.message.MessageReplayServer;
-import com.github.skyandcloud.wechatclient.server.wechat.WechatPackingApiServer;
-import com.github.skyandcloud.wechatclient.server.wechat.impl.WechatPackingApiServerImpl;
+import com.github.skyandcloud.wechatclient.service.message.MessageReplayService;
+import com.github.skyandcloud.wechatclient.service.wechat.WechatPackingApiService;
+import com.github.skyandcloud.wechatclient.service.wechat.impl.WechatPackingApiServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.RandomUtils;
@@ -17,12 +17,12 @@ import org.apache.commons.lang3.RandomUtils;
  * @Date 2024/11/22 15:35
  */
 @Slf4j
-public class MessageReplayServerImpl implements MessageReplayServer {
+public class MessageReplayServiceImpl implements MessageReplayService {
 
     /**
      * 微信服务
      */
-    private final WechatPackingApiServer wechatPackingApiServer = new WechatPackingApiServerImpl();
+    private final WechatPackingApiService wechatPackingApiService = new WechatPackingApiServiceImpl();
 
     @Override
     public Boolean handle(MessageVo message) {
@@ -85,7 +85,7 @@ public class MessageReplayServerImpl implements MessageReplayServer {
         }
 
         log.info("send group message. groupId : {},  content:{} ", message.getFromGroup(), message.getContent());
-        return wechatPackingApiServer.sendTextMessage(message.getFromGroup(), message.getContent());
+        return wechatPackingApiService.sendTextMessage(message.getFromGroup(), message.getContent());
     }
 
     @Override
@@ -101,7 +101,7 @@ public class MessageReplayServerImpl implements MessageReplayServer {
         }
 
         log.info("send group at message. groupId : {}, userId : {}, content:{} ", message.getFromGroup(), message.getFromUser(), message.getContent());
-        return wechatPackingApiServer.sendTextAtMessage(message.getFromGroup(), message.getFromUser(), message.getContent());
+        return wechatPackingApiService.sendTextAtMessage(message.getFromGroup(), message.getFromUser(), message.getContent());
     }
 
     @Override
@@ -117,7 +117,7 @@ public class MessageReplayServerImpl implements MessageReplayServer {
         }
 
         log.info("send user message. userId : {},  content:{} ", message.getFromUser(), message.getContent());
-        return wechatPackingApiServer.sendTextMessage(message.getFromUser(), message.getContent());
+        return wechatPackingApiService.sendTextMessage(message.getFromUser(), message.getContent());
     }
 
     @Override

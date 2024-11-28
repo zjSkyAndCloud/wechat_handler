@@ -1,7 +1,8 @@
 package com.github.skyandcloud.wechatclient.task;
 
+import com.github.skyandcloud.common.constant.NodeStatusConstant;
 import com.github.skyandcloud.common.constant.NettyConstant;
-import com.github.skyandcloud.common.dto.wechat.RegisterDto;
+import com.github.skyandcloud.common.dto.wechat.NodeStatusDto;
 import com.github.skyandcloud.common.encoder.MessageDecoder;
 import com.github.skyandcloud.common.encoder.MessageEncoder;
 import com.github.skyandcloud.wechatclient.config.GlobalStaticConfig;
@@ -84,7 +85,7 @@ public class ClientNettyTask implements Runnable {
      * 发送注册成功消息
      */
     private void sendRegisterMessage() {
-        RegisterDto registerDo = new RegisterDto(GlobalStaticConfig.getName(), GlobalStaticConfig.getWxid(), nodeWeight);
+        NodeStatusDto registerDo = new NodeStatusDto(NodeStatusConstant.ONLINE, GlobalStaticConfig.getName(), GlobalStaticConfig.getWxid(), nodeWeight);
         sendMessage(registerDo);
     }
 

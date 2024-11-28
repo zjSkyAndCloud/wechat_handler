@@ -4,10 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.github.skyandcloud.common.dto.wechat.ClientMessageDto;
 import com.github.skyandcloud.wechatclient.domain.message.WechatMessageEntity;
 import com.github.skyandcloud.wechatclient.domain.message.WechatMessagePackagingEntity;
-import com.github.skyandcloud.wechatclient.server.start.impl.ClientNettyServerImpl;
-import com.github.skyandcloud.wechatclient.server.strategic.StrategicMessageContentServer;
-import com.github.skyandcloud.wechatclient.server.wechat.WechatMessageServer;
-import com.github.skyandcloud.wechatclient.server.wechat.impl.WechatMessageServerImpl;
+import com.github.skyandcloud.wechatclient.service.start.impl.ClientNettyServiceImpl;
+import com.github.skyandcloud.wechatclient.service.strategic.StrategicMessageContentService;
+import com.github.skyandcloud.wechatclient.service.wechat.WechatMessageService;
+import com.github.skyandcloud.wechatclient.service.wechat.impl.WechatMessageServiceImpl;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ public class AcceptWechatMessageHandler extends SimpleChannelInboundHandler<Stri
     /**
      * 微信消息处理类
      */
-    private final WechatMessageServer wechatMessageServer = new WechatMessageServerImpl();
+    private final WechatMessageService wechatMessageService = new WechatMessageServiceImpl();
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, String wechatMessageString) throws Exception {
@@ -40,8 +40,8 @@ public class AcceptWechatMessageHandler extends SimpleChannelInboundHandler<Stri
         }
 
 
-        WechatMessagePackagingEntity wechatMessagePackaging = wechatMessageServer.packingMessage(wechatMessage);
-        ClientMessageDto clientMessageDto = StrategicMessageContentServer.handler(wechatMessagePackaging);
-        ClientNettyServerImpl.sendMessage(clientMessageDto);
+        WechatMessagePackagingEntity wechatMessagePackaging = wechatMessageService.packingMessage(wechatMessage);
+        ClientMessageDto clientMessageDto = StrategicMessageContentService.handler(wechatMessagePackaging);
+        ClientNettyServiceImpl.sendMessage(clientMessageDto);
     }
 }

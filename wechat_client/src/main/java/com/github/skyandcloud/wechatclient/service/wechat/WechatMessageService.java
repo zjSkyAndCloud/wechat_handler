@@ -1,4 +1,4 @@
-package com.github.skyandcloud.wechatclient.server.wechat;
+package com.github.skyandcloud.wechatclient.service.wechat;
 
 import com.github.skyandcloud.wechatclient.domain.message.WechatMessageEntity;
 import com.github.skyandcloud.wechatclient.domain.message.WechatMessagePackagingEntity;
@@ -8,7 +8,7 @@ import com.github.skyandcloud.wechatclient.domain.message.WechatMessagePackaging
  * @Author zheng.jiang
  * @Date 2024/11/25 15:29
  */
-public interface WechatMessageServer {
+public interface WechatMessageService {
 
     /**
      * 包装微信消息

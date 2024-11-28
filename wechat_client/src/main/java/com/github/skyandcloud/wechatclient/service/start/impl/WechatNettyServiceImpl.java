@@ -1,7 +1,7 @@
-package com.github.skyandcloud.wechatclient.server.start.impl;
+package com.github.skyandcloud.wechatclient.service.start.impl;
 
 import com.github.skyandcloud.wechatclient.config.PropertiesConfig;
-import com.github.skyandcloud.wechatclient.server.start.RunServer;
+import com.github.skyandcloud.wechatclient.service.start.RunService;
 import com.github.skyandcloud.wechatclient.task.WechatNettyTask;
 import lombok.extern.slf4j.Slf4j;
 
@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
  * @Date 2024/9/4 14:55
  */
 @Slf4j
-public class WechatNettyServerImpl implements RunServer {
+public class WechatNettyServiceImpl implements RunService {
 
     public void run() throws Exception {
         String wechatServerIp = PropertiesConfig.getProperties(PropertiesConfig.WECHAT_SERVER_IP_KEY);

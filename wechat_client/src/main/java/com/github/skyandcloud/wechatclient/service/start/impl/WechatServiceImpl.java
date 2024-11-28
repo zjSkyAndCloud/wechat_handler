@@ -1,10 +1,10 @@
-package com.github.skyandcloud.wechatclient.server.start.impl;
+package com.github.skyandcloud.wechatclient.service.start.impl;
 
 import com.github.skyandcloud.wechatclient.config.GlobalStaticConfig;
 import com.github.skyandcloud.wechatclient.domain.wechatapi.data.UserInfoDataObject;
-import com.github.skyandcloud.wechatclient.server.start.RunServer;
-import com.github.skyandcloud.wechatclient.server.wechat.WechatPackingApiServer;
-import com.github.skyandcloud.wechatclient.server.wechat.impl.WechatPackingApiServerImpl;
+import com.github.skyandcloud.wechatclient.service.start.RunService;
+import com.github.skyandcloud.wechatclient.service.wechat.WechatPackingApiService;
+import com.github.skyandcloud.wechatclient.service.wechat.impl.WechatPackingApiServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -13,9 +13,9 @@ import lombok.extern.slf4j.Slf4j;
  * @Date 2024/11/26 17:19
  */
 @Slf4j
-public class WechatServerImpl implements RunServer {
+public class WechatServiceImpl implements RunService {
 
-    private static final WechatPackingApiServer wechatServer = new WechatPackingApiServerImpl();
+    private static final WechatPackingApiService wechatServer = new WechatPackingApiServiceImpl();
 
     public void run() throws Exception {
         setAccountInfo();

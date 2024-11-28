@@ -1,8 +1,8 @@
-package com.github.skyandcloud.wechatclient.server.start.impl;
+package com.github.skyandcloud.wechatclient.service.start.impl;
 
-import com.github.skyandcloud.wechatclient.server.start.RunServer;
-import com.github.skyandcloud.wechatclient.server.wechat.impl.WechatPackingApiServerImpl;
-import com.github.skyandcloud.wechatclient.server.wechat.WechatPackingApiServer;
+import com.github.skyandcloud.wechatclient.service.start.RunService;
+import com.github.skyandcloud.wechatclient.service.wechat.impl.WechatPackingApiServiceImpl;
+import com.github.skyandcloud.wechatclient.service.wechat.WechatPackingApiService;
 import com.github.skyandcloud.wechatclient.utils.FileUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
@@ -15,9 +15,9 @@ import java.io.*;
  * @Date 2024/11/24 16:13
  */
 @Slf4j
-public class InjectorServerImpl implements RunServer {
+public class InjectorServiceImpl implements RunService {
 
-    private static final WechatPackingApiServer WECHAT_PACKING_API_SERVER = new WechatPackingApiServerImpl();
+    private static final WechatPackingApiService WECHAT_PACKING_API_SERVER = new WechatPackingApiServiceImpl();
 
     /**
      * 注入程序

@@ -1,4 +1,4 @@
-package com.github.skyandcloud.wechatclient.server.message;
+package com.github.skyandcloud.wechatclient.service.message;
 
 import com.github.skyandcloud.common.vo.MessageVo;
 
@@ -7,7 +7,7 @@ import com.github.skyandcloud.common.vo.MessageVo;
  * @Author zheng.jiang
  * @Date 2024/11/22 15:32
  */
-public interface MessageReplayServer {
+public interface MessageReplayService {
 
     /**
      * 消息处理

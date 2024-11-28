@@ -1,7 +1,7 @@
 package com.github.skyandcloud.wechatclient.config;
 
-import com.github.skyandcloud.wechatclient.server.strategic.impl.MessageContentFileHandlerServerImpl;
-import com.github.skyandcloud.wechatclient.server.strategic.impl.MessageContentTextHandlerServerImpl;
+import com.github.skyandcloud.wechatclient.service.strategic.impl.MessageContentFileHandlerServiceImpl;
+import com.github.skyandcloud.wechatclient.service.strategic.impl.MessageContentTextHandlerServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -21,9 +21,9 @@ public class HandlerLoader {
      * 加载消息处理handler
      */
     private static void loadStrategicMessageHandler() {
-        MessageContentFileHandlerServerImpl fileMessageHandlerServer = new MessageContentFileHandlerServerImpl();
+        MessageContentFileHandlerServiceImpl fileMessageHandlerServer = new MessageContentFileHandlerServiceImpl();
         fileMessageHandlerServer.register();
-        MessageContentTextHandlerServerImpl textMessageHandlerServer = new MessageContentTextHandlerServerImpl();
+        MessageContentTextHandlerServiceImpl textMessageHandlerServer = new MessageContentTextHandlerServiceImpl();
         textMessageHandlerServer.register();
         log.info("message handler module load finish");
     }

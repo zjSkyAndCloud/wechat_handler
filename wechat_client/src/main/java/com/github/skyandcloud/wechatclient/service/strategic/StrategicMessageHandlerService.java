@@ -1,4 +1,4 @@
-package com.github.skyandcloud.wechatclient.server.strategic;
+package com.github.skyandcloud.wechatclient.service.strategic;
 
 import com.github.skyandcloud.common.dto.wechat.ClientMessageDto;
 import com.github.skyandcloud.wechatclient.domain.message.WechatMessagePackagingEntity;
@@ -8,7 +8,7 @@ import com.github.skyandcloud.wechatclient.domain.message.WechatMessagePackaging
  * @Author zheng.jiang
  * @Date 2024/9/8 14:33
  */
-public interface StrategicMessageHandlerServer {
+public interface StrategicMessageHandlerService {
 
 
     void register();

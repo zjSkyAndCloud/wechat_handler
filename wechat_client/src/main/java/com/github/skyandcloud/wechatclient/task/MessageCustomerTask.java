@@ -2,8 +2,8 @@ package com.github.skyandcloud.wechatclient.task;
 
 import com.github.skyandcloud.common.enums.MessageHandlerTypeEnums;
 import com.github.skyandcloud.common.vo.MessageVo;
-import com.github.skyandcloud.wechatclient.server.message.MessageReplayServer;
-import com.github.skyandcloud.wechatclient.server.message.impl.MessageReplayServerImpl;
+import com.github.skyandcloud.wechatclient.service.message.MessageReplayService;
+import com.github.skyandcloud.wechatclient.service.message.impl.MessageReplayServiceImpl;
 import org.apache.commons.lang3.ObjectUtils;
 
 import java.util.concurrent.LinkedBlockingDeque;
@@ -15,7 +15,7 @@ import java.util.concurrent.LinkedBlockingDeque;
  */
 public class MessageCustomerTask implements Runnable {
 
-    private final MessageReplayServer messageReplayServer = new MessageReplayServerImpl();
+    private final MessageReplayService messageReplayService = new MessageReplayServiceImpl();
 
     private final LinkedBlockingDeque<MessageVo> messageDeque;
 
@@ -34,7 +34,7 @@ public class MessageCustomerTask implements Runnable {
                     continue;
                 }
 
-                messageReplayServer.handle(message);
+                messageReplayService.handle(message);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

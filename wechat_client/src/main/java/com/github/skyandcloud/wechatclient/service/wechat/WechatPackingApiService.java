@@ -1,4 +1,4 @@
-package com.github.skyandcloud.wechatclient.server.wechat;
+package com.github.skyandcloud.wechatclient.service.wechat;
 
 import com.github.skyandcloud.wechatclient.domain.wechatapi.data.UserInfoDataObject;
 
@@ -7,7 +7,7 @@ import com.github.skyandcloud.wechatclient.domain.wechatapi.data.UserInfoDataObj
  * @Author zheng.jiang
  * @Date 2024/8/27 15:15
  */
-public interface WechatPackingApiServer {
+public interface WechatPackingApiService {
 
     /**
      * 判断是否登录

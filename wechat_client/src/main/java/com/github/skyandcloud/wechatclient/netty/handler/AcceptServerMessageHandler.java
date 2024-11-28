@@ -1,8 +1,8 @@
 package com.github.skyandcloud.wechatclient.netty.handler;
 
 import com.github.skyandcloud.common.vo.MessageVo;
-import com.github.skyandcloud.wechatclient.server.message.MessageHandlerServer;
-import com.github.skyandcloud.wechatclient.server.message.impl.MessageHandlerServerImpl;
+import com.github.skyandcloud.wechatclient.service.message.MessageHandlerService;
+import com.github.skyandcloud.wechatclient.service.message.impl.MessageHandlerServiceImpl;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ import org.apache.commons.lang3.ObjectUtils;
 @Slf4j
 public class AcceptServerMessageHandler extends SimpleChannelInboundHandler<MessageVo> {
 
-    private final MessageHandlerServer messageHandlerServer = new MessageHandlerServerImpl();
+    private final MessageHandlerService messageHandlerService = new MessageHandlerServiceImpl();
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, MessageVo messageVo) throws Exception {
@@ -26,7 +26,7 @@ public class AcceptServerMessageHandler extends SimpleChannelInboundHandler<Mess
         }
 
         log.info("accept reply message fromGroup:{}, fromUser:{}, message:{}", messageVo.getFromGroup(), messageVo.getFromUser(), messageVo.getContent());
-        messageHandlerServer.addMessage(messageVo);
+        messageHandlerService.addMessage(messageVo);
     }
 
     /**

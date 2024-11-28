@@ -1,4 +1,4 @@
-package com.github.skyandcloud.wechatclient.server.wechat;
+package com.github.skyandcloud.wechatclient.service.wechat;
 
 import com.github.skyandcloud.common.utils.SleepUtils;
 import com.github.skyandcloud.wechatclient.config.GlobalStaticConfig;
@@ -20,7 +20,7 @@ import java.util.Date;
  * @Date 2024/11/22 16:37
  */
 @Slf4j
-public class WechatFileServer {
+public class WechatFileService {
 
 
     /**

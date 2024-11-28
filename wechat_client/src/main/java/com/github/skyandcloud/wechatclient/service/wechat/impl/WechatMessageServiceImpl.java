@@ -1,8 +1,8 @@
-package com.github.skyandcloud.wechatclient.server.wechat.impl;
+package com.github.skyandcloud.wechatclient.service.wechat.impl;
 
 import com.github.skyandcloud.wechatclient.domain.message.WechatMessageEntity;
 import com.github.skyandcloud.wechatclient.domain.message.WechatMessagePackagingEntity;
-import com.github.skyandcloud.wechatclient.server.wechat.WechatMessageServer;
+import com.github.skyandcloud.wechatclient.service.wechat.WechatMessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 
@@ -12,7 +12,7 @@ import org.apache.commons.lang3.ObjectUtils;
  * @Date 2024/11/25 15:30
  */
 @Slf4j
-public class WechatMessageServerImpl implements WechatMessageServer {
+public class WechatMessageServiceImpl implements WechatMessageService {
 
     private static final String SPLIT = ":\\n";
 

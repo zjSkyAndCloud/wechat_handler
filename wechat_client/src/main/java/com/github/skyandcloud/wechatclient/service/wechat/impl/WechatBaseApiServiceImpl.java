@@ -1,9 +1,9 @@
-package com.github.skyandcloud.wechatclient.server.wechat.impl;
+package com.github.skyandcloud.wechatclient.service.wechat.impl;
 
 import com.github.skyandcloud.common.utils.HttpUtils;
 import com.github.skyandcloud.wechatclient.domain.wechatapi.param.*;
 import com.github.skyandcloud.wechatclient.domain.wechatapi.result.*;
-import com.github.skyandcloud.wechatclient.server.wechat.WechatBaseApiServer;
+import com.github.skyandcloud.wechatclient.service.wechat.WechatBaseApiService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,7 +15,7 @@ import static com.github.skyandcloud.wechatclient.constant.ApiUrlConstant.*;
  * @Date 2024/9/13 14:55
  */
 @Slf4j
-public class WechatBaseApiServerImpl implements WechatBaseApiServer {
+public class WechatBaseApiServiceImpl implements WechatBaseApiService {
 
     /**
      * 注入的服务地址

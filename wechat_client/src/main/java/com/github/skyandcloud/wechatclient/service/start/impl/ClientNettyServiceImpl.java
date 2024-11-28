@@ -1,7 +1,7 @@
-package com.github.skyandcloud.wechatclient.server.start.impl;
+package com.github.skyandcloud.wechatclient.service.start.impl;
 
 import com.github.skyandcloud.wechatclient.config.PropertiesConfig;
-import com.github.skyandcloud.wechatclient.server.start.RunServer;
+import com.github.skyandcloud.wechatclient.service.start.RunService;
 import com.github.skyandcloud.wechatclient.task.ClientNettyTask;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
@@ -12,7 +12,7 @@ import org.apache.commons.lang3.ObjectUtils;
  * @Date 2024/9/2 13:22
  */
 @Slf4j
-public class ClientNettyServerImpl implements RunServer {
+public class ClientNettyServiceImpl implements RunService {
 
 
     private static ClientNettyTask nettyClientTask;

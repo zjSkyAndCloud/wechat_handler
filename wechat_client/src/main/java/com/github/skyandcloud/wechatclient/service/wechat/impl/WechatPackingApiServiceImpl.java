@@ -1,12 +1,12 @@
-package com.github.skyandcloud.wechatclient.server.wechat.impl;
+package com.github.skyandcloud.wechatclient.service.wechat.impl;
 
 import com.github.skyandcloud.wechatclient.domain.wechatapi.data.UserInfoDataObject;
 import com.github.skyandcloud.wechatclient.domain.wechatapi.param.HookSyncMsgParam;
 import com.github.skyandcloud.wechatclient.domain.wechatapi.param.SendAtTextParam;
 import com.github.skyandcloud.wechatclient.domain.wechatapi.param.SendTextMsgParam;
 import com.github.skyandcloud.wechatclient.domain.wechatapi.result.*;
-import com.github.skyandcloud.wechatclient.server.wechat.WechatBaseApiServer;
-import com.github.skyandcloud.wechatclient.server.wechat.WechatPackingApiServer;
+import com.github.skyandcloud.wechatclient.service.wechat.WechatBaseApiService;
+import com.github.skyandcloud.wechatclient.service.wechat.WechatPackingApiService;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -15,9 +15,9 @@ import lombok.extern.slf4j.Slf4j;
  * @Date 2024/9/1 16:31
  */
 @Slf4j
-public class WechatPackingApiServerImpl implements WechatPackingApiServer {
+public class WechatPackingApiServiceImpl implements WechatPackingApiService {
 
-    private static final WechatBaseApiServer BASE_API_SERVER = new WechatBaseApiServerImpl();
+    private static final WechatBaseApiService BASE_API_SERVER = new WechatBaseApiServiceImpl();
 
     private static final String TIME_OUT = "10000";
 

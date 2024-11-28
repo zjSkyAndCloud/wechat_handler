@@ -1,13 +1,13 @@
-package com.github.skyandcloud.wechatclient.server.strategic.impl;
+package com.github.skyandcloud.wechatclient.service.strategic.impl;
 
 import com.github.skyandcloud.common.dto.wechat.ClientMessageDto;
 import com.github.skyandcloud.common.utils.ByteArrayStreamUtils;
 import com.github.skyandcloud.wechatclient.constant.MessageTypeConstant;
 import com.github.skyandcloud.wechatclient.domain.message.UnescapeFileEntity;
 import com.github.skyandcloud.wechatclient.domain.message.WechatMessagePackagingEntity;
-import com.github.skyandcloud.wechatclient.server.strategic.StrategicMessageContentServer;
-import com.github.skyandcloud.wechatclient.server.strategic.StrategicMessageHandlerServer;
-import com.github.skyandcloud.wechatclient.server.wechat.WechatFileServer;
+import com.github.skyandcloud.wechatclient.service.strategic.StrategicMessageContentService;
+import com.github.skyandcloud.wechatclient.service.strategic.StrategicMessageHandlerService;
+import com.github.skyandcloud.wechatclient.service.wechat.WechatFileService;
 import com.github.skyandcloud.wechatclient.utils.WechatFileUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
@@ -20,15 +20,15 @@ import java.io.*;
  * @Date 2024/9/8 15:15
  */
 @Slf4j
-public class MessageContentFileHandlerServerImpl implements StrategicMessageHandlerServer {
+public class MessageContentFileHandlerServiceImpl implements StrategicMessageHandlerService {
 
     private static final String SPLIT = ":\\n";
 
-    private final WechatFileServer wechatFileServer = new WechatFileServer();
+    private final WechatFileService wechatFileService = new WechatFileService();
 
     @Override
     public void register() {
-        StrategicMessageContentServer.registerStrategicMessageHandlerServer(MessageTypeConstant.FILE, MessageContentFileHandlerServerImpl.class);
+        StrategicMessageContentService.registerStrategicMessageHandlerServer(MessageTypeConstant.FILE, MessageContentFileHandlerServiceImpl.class);
     }
 
 
@@ -46,7 +46,7 @@ public class MessageContentFileHandlerServerImpl implements StrategicMessageHand
             return null;
         }
 
-        try (InputStream inputStream = wechatFileServer.getWechatFileInputStream(unescapeFile.getFileName(), unescapeFile.getLength())) {
+        try (InputStream inputStream = wechatFileService.getWechatFileInputStream(unescapeFile.getFileName(), unescapeFile.getLength())) {
             log.info("fromGroup:{}, fromUser:{}, fileName:{}", message.getFromGroup(), message.getFromUser(), unescapeFile.getFileName());
             return new ClientMessageDto(message.getFromGroup(), message.getFromUser(), unescapeFile.getFileName(), ByteArrayStreamUtils.getBytes(inputStream));
         }

@@ -1,4 +1,4 @@
-package com.github.skyandcloud.wechatclient.server.strategic;
+package com.github.skyandcloud.wechatclient.service.strategic;
 
 import com.github.skyandcloud.common.dto.wechat.ClientMessageDto;
 import com.github.skyandcloud.wechatclient.domain.message.WechatMessagePackagingEntity;
@@ -14,9 +14,9 @@ import java.util.Map;
  * @Date 2024/9/8 15:24
  */
 @Slf4j
-public class StrategicMessageContentServer {
+public class StrategicMessageContentService {
 
-    private static Map<Integer, Class<? extends StrategicMessageHandlerServer>> messageHandlerServerMap = new HashMap<>();
+    private static Map<Integer, Class<? extends StrategicMessageHandlerService>> messageHandlerServerMap = new HashMap<>();
 
     /**
      * 注册消息处理类
@@ -24,7 +24,7 @@ public class StrategicMessageContentServer {
      * @param type
      * @param tClass
      */
-    public static void registerStrategicMessageHandlerServer(Integer type, Class<? extends StrategicMessageHandlerServer> tClass) {
+    public static void registerStrategicMessageHandlerServer(Integer type, Class<? extends StrategicMessageHandlerService> tClass) {
         messageHandlerServerMap.put(type, tClass);
     }
 
@@ -40,8 +40,8 @@ public class StrategicMessageContentServer {
             return null;
         }
 
-        Class<? extends StrategicMessageHandlerServer> tClass = messageHandlerServerMap.get(type);
-        StrategicMessageHandlerServer handlerServer = tClass.newInstance();
+        Class<? extends StrategicMessageHandlerService> tClass = messageHandlerServerMap.get(type);
+        StrategicMessageHandlerService handlerServer = tClass.newInstance();
         return handlerServer.handler(message);
     }
 
