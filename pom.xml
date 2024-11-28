@@ -23,12 +23,15 @@
         <slf4j.version>1.7.21</slf4j.version>
 
         <wechat_client.version>0.0.1</wechat_client.version>
+        <wechat_server.version>0.0.1</wechat_server.version>
         <common.version>0.0.1</common.version>
     </properties>
 
     <modules>
-        <module>wechat_client</module>
         <module>common</module>
+        <module>wechat_client</module>
+        <module>wechat_server</module>
+
     </modules>
 
     <dependencies>
@@ -73,10 +76,18 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- Database Driver -->
+
             <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <!-- MyBatis Starter -->
@@ -96,6 +107,21 @@
                 <artifactId>netty-all</artifactId>
                 <version>${netty.version}</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- Database Driver -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

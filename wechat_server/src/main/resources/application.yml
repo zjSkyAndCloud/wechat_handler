@@ -1,0 +1,34 @@
+server:
+  port: 8083
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/wechat?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: w#Rizj_1021
+  application:
+    name: wechatService
+
+# eureka配置
+eureka:
+  client:
+    # 是否将自己注册到eureka注册中心
+    register-with-eureka: true
+    # 是否从eureka注册中心获取注册信息
+    fetch-registry: true
+    # eureka服务端对外提供的服务地址
+    service-url:
+      defaultZone: http://121.37.189.218:8763/eureka/ # eureka服务端的地址
+    # 是否启用eureka客户端
+    enabled: true
+    # 是否开启eureka客户端的健康检查机制
+    healthcheck:
+      enabled: true
+netty:
+  server:
+    port: 19077
+
+forward:
+  default:
+    text-url: bills_upload
+    file-url: bills_file_upload
